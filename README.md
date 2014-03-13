@@ -1,4 +1,4 @@
-Leaflet.js loesning til at vise historiske matrikelkort
+Leaflet.js løsning til at vise historiske matrikelkort
 =======================
 ###Beskrivelse af de data som indgår i denne løsning###
 
