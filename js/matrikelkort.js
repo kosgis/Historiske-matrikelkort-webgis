@@ -1,13 +1,30 @@
 /*global L, lag*/
-var map = L.map('map', {
+var map = L.mapbox.map('map', {
     maxZoom: 20
-}).setView([55.683, 12.535], 14);
+});
 
 var hash = L.hash(map);
 
 L.control.fullscreen().addTo(map);
 
+/********************************************
+ * https://github.com/runetvilum/geokeys.js *
+ ********************************************/
+L.geokeys.control('http://kortforsyningen.kms.dk/?servicename=RestGeokeys_v2&method=matrikelnr&ejkode=10051&login=runetvilum&password=rutv2327&matnr={query}*', {
+    placeholder: 'Søg matrikel (rest service)'
+}).addTo(map);
+L.geokeys.control('http://kortforsyningen.kms.dk/Geosearch?resources=stednavne&login=runetvilum&password=rutv2327&limit=20&search={query}', {
+    placeholder: 'Søg stednavne'
+}).addTo(map);
+L.geokeys.control('http://kortforsyningen.kms.dk/Geosearch?resources=adresser, stednavne&login=runetvilum&password=rutv2327&limit=20&search={query}, frederiksberg', {
+    placeholder: 'Søg adresser, stednavne + frederiksberg'
+}).addTo(map);
+L.geokeys.control('http://kortforsyningen.kms.dk/Geosearch?resources=matrikelnumre&login=runetvilum&password=rutv2327&limit=20&search={query}, frederiksberg', {
+    placeholder: 'Søg matrikel (geosearch)'
+}).addTo(map);
+
 var graymap = L.mapbox.tileLayer('examples.map-20v6611k').addTo(map);
+map.setView([55.683, 12.535], 14);
 var overlays = [];
 var baseLayers = {
     'Grundkort': graymap
