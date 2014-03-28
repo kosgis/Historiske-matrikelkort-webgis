@@ -5,8 +5,8 @@
     <meta charset=utf-8 />
     <title>Historiske kort</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
-    <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.1/leaflet.fullscreen.css' rel='stylesheet' />    
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+    <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />    
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -15,13 +15,15 @@
 
 <body>
     <div id='map'></div>
-    <div id='control'></div>
-    <div id='handle'></div>
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
-    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.1/Leaflet.fullscreen.min.js'></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
     <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
-    <script src='js/lag.js' type='text/javascript'></script>
-    <script src='js/matrikelkort.js' type='text/javascript'></script>
+    <script src="js/proj4.js"></script>
+    <script src="js/wicket.min.js"></script>
+    <script src="js/wicket-leaflet.min.js"></script>
+    <script src="js/geokeys.js"></script>
+    <script src='js/lag.js'></script>
+    <script src='js/matrikelkort.js'></script>
 </body>
 
 </html>
