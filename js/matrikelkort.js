@@ -7,21 +7,16 @@ var hash = L.hash(map);
 
 L.control.fullscreen().addTo(map);
 
-/********************************************
- * https://github.com/runetvilum/geokeys.js *
- ********************************************/
-L.geokeys.control('http://kortforsyningen.kms.dk/?servicename=RestGeokeys_v2&method=matrikelnr&ejkode=10051&login=runetvilum&password=rutv2327&matnr={query}*', {
-    placeholder: 'Søg matrikel (rest service)'
+/*************************************************
+ * https://github.com/runetvilum/Leaflet-geokeys *
+ *************************************************/
+L.geokeys.matrikelnr({
+    placeholder: 'Søg matrikel'
+}, {
+    login: 'runetvilum',
+    password: 'rutv2327'
 }).addTo(map);
-L.geokeys.control('http://kortforsyningen.kms.dk/Geosearch?resources=stednavne&login=runetvilum&password=rutv2327&limit=20&search={query}', {
-    placeholder: 'Søg stednavne'
-}).addTo(map);
-L.geokeys.control('http://kortforsyningen.kms.dk/Geosearch?resources=adresser, stednavne&login=runetvilum&password=rutv2327&limit=20&search={query}, frederiksberg', {
-    placeholder: 'Søg adresser, stednavne + frederiksberg'
-}).addTo(map);
-L.geokeys.control('http://kortforsyningen.kms.dk/Geosearch?resources=matrikelnumre&login=runetvilum&password=rutv2327&limit=20&search={query}, frederiksberg', {
-    placeholder: 'Søg matrikel (geosearch)'
-}).addTo(map);
+
 
 var graymap = L.mapbox.tileLayer('examples.map-20v6611k').addTo(map);
 map.setView([55.683, 12.535], 14);
