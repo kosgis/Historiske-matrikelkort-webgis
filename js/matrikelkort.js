@@ -3,6 +3,11 @@ var map = L.mapbox.map('map', {
     maxZoom: 20
 });
 
+/* mapBuffer er antal af grader som et matrikelkort skal overlappe
+   kortvisningen før det dukker op i lag-listen. Graderne er defineret
+   ved zoom-niveau 18, og bliver skaleret op og ned så det passer. */
+var mapBuffer = 0.002
+
 var hash = L.hash(map);
 
 L.control.fullscreen().addTo(map);
@@ -35,9 +40,11 @@ function addOverlay(overlay) {
     var bounds = map.getBounds();
     if (overlay.tileJSON.maxzoom >= zoom &&
         overlay.tileJSON.minzoom <= zoom &&
+        /* Tjek om kortlaget overlapper kortvinduet med mere end den definerede
+           buffer */
         bounds.intersects([
-            [overlay.tileJSON.bounds[1], overlay.tileJSON.bounds[0]],
-            [overlay.tileJSON.bounds[3], overlay.tileJSON.bounds[2]]
+            [overlay.tileJSON.bounds[1]+(mapBuffer*Math.pow(2,18-zoom)), overlay.tileJSON.bounds[0]+(mapBuffer*Math.pow(2,18-zoom))],
+            [overlay.tileJSON.bounds[3]-(mapBuffer*Math.pow(2,18-zoom)), overlay.tileJSON.bounds[2]-(mapBuffer*Math.pow(2,18-zoom))]
         ])) {
         layersControl.addOverlay(overlay.layer, overlay.tileJSON.name);
     }
