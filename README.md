@@ -17,7 +17,7 @@ Bounds og zoomniveauer fra de enkeltekort hentes dynamisk fra Tilestream og beny
 
 ###Beskrivelse af de data som indgår i løsningen###
 
-Alle Matrikelplaner er scannet som jpg filer, derefter georeferet i [QGIS](http://www.qgis.org/en/site/) og exporteret som geotiff.
+Alle Matrikelplaner er scannet som jpg filer, derefter georefereret i [QGIS](http://www.qgis.org/en/site/) og exporteret som geotiff.
 Derefter er alle kort tilet i [Tilemill](https://www.mapbox.com/tilemill/) fra MapBox.com og exproteret som MBTiles.
 
 MBTiles filerne er derefter uploadet til en [Amazon server EC2](http://aws.amazon.com/ec2/) micro Instance hvor der er installeret [Tilestream](https://github.com/mapbox/tilestream).  *"TileStream is a high-performance map tile server powered by MBTiles files."*
