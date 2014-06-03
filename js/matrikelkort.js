@@ -64,12 +64,18 @@ for (var i = 0; i < lag.length; i++) {
     L.mapbox.tileLayer('http://54.229.79.223:8888/v2/' + lag[i] + '.json').on('ready', ready);
 }
 
+var token;
 map.on('viewreset move', function () {
-    var zoom = map.getZoom();
-    var bounds = map.getBounds();
-    for (var i = 0; i < overlays.length; i++) {
-        var overlay = overlays[i];
-        layersControl.removeLayer(overlay.layer);
-        addOverlay(overlay);
+    if (token) {
+        clearTimeout(token);
     }
+    token = setTimeout(function () {
+        var zoom = map.getZoom();
+        var bounds = map.getBounds();
+        for (var i = 0; i < overlays.length; i++) {
+            var overlay = overlays[i];
+            layersControl.removeLayer(overlay.layer);
+            addOverlay(overlay);
+        }
+    }, 500);
 });
