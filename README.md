@@ -1,13 +1,29 @@
-Leaflet.js løsning til at vise historiske matrikelkort
+Web-løsning til at vise historiske matrikelkort
 =======================
-###Beskrivelse af de data som indgår i denne løsning###
 
-Alle planer er scannet som jpg filer, derefter georeferet i QGIS og exporteret som geotiff.
-Derefter er alle kort tilet i tilemill og exproteret som MBTiles.
+Se demo her: [Historiske matrikelkort fra Frederiksberg](http://hassehauch.github.io/Historiske-matrikelkort-webgis/matrikelkort.html "Historiske matrikelkort")
 
-MBTiles filerne er derefter uploadet til en Amazon server hvor der er installeret tilestreem (webtile service fra MapBox) og udstillet som en TMS service.
+###Funktioner###
 
-###Leaflet.js til visning af historiske matrikelplaner###
-Denne Leaflet.js løsning viser så alle kortene i en samlet løsning.
+1. Dynamisk lagkontrol - viser kun de kort der er synlige i det aktuelle kortvindue
+2. Matrikelsøg - en widget som zoomer til matrikel. Benytter geokey fra gst.dk
 
-Da der er ca. 100 kort er denne løsning lavet til at filtrere lagkontrollen så den kun viser de kort der dækker det aktuelle kortudsnit. Sagt med andre ord, lagkontrollen ændrer sig når man zoomer eller panorerer i kortet.
+###Leaflet.js til visning af historiske matrikelkort###
+Denne løsning er bygget på [Leafletjs.com](http://leafletjs.com) og [Tilestream](https://github.com/mapbox/tilestream) fra MapBox.com.
+
+Da der er over 100 kort i løsning, er lagkontrollen lavet til kun at vise  de kort der dækker det aktuelle kortudsnit og zoom niveau. Sagt med andre ord, lagkontrollen ændrer sig når man zoomer eller panorerer i kortet.
+
+Bounds og zoomniveauer fra de enkeltekort hentes dynamisk fra Tilestream og benyttes til at filtrerer lagkontrollen.
+
+###Beskrivelse af de data som indgår i løsningen###
+
+Alle Matrikelplaner er scannet som jpg filer, derefter georefereret i [QGIS](http://www.qgis.org/en/site/) og exporteret som geotiff.
+Derefter er alle kort tilet i [Tilemill](https://www.mapbox.com/tilemill/) fra MapBox.com og exproteret som MBTiles.
+
+MBTiles filerne er derefter uploadet til en [Amazon server EC2](http://aws.amazon.com/ec2/) micro Instance hvor der er installeret [Tilestream](https://github.com/mapbox/tilestream).  *"TileStream is a high-performance map tile server powered by MBTiles files."*
+
+
+----------
+
+
+Hvis der er spørgsmål eller kommentar kontakt venligst Hasse Hauch fra Frederiksberg Kommune.

@@ -3,6 +3,17 @@ var map = L.mapbox.map('map', {
     maxZoom: 20
 });
 
+// tilføj logo til kortet
+
+var logo = L.control({position: 'bottomleft'});
+        logo.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'logo');
+            div.innerHTML += '<p><img src="img/frb_logo.png" /></p>';
+            return div;
+        };
+        logo.addTo(map);
+		
+
 /* mapBuffer er antal af grader som et matrikelkort skal overlappe
    kortvisningen før det dukker op i lag-listen. Graderne er defineret
    ved zoom-niveau 18, og bliver skaleret op og ned så det passer. */
@@ -16,7 +27,8 @@ L.control.fullscreen().addTo(map);
  * https://github.com/runetvilum/Leaflet-geokeys *
  *************************************************/
 L.geokeys.matrikelnr({
-    placeholder: 'Søg matrikel'
+    placeholder: 'Søg matrikel',
+    //keepOpen: true
 }, {
     login: 'runetvilum',
     password: 'rutv2327'
