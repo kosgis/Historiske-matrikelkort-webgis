@@ -1,4 +1,6 @@
-var lag = ['Plan_01I_1-800_1921',
+var lag = ['Matrikler',
+           'FOT_bygninger',
+           'Plan_01I_1-800_1921',
            'Plan_01II_1-800_1932',
            'Plan_02I_1-800_1921',
            'Plan_02II_1-800_1921',
@@ -96,7 +98,5 @@ var lag = ['Plan_01I_1-800_1921',
 		   'Plan_04_1-4000_1901',
 		   'Plan_26_1-4000_1921',
 		   'Plan-03_1-4000_1891',
-           'kort1932',
-           'Matrikler',
-           'FOT_bygninger'
+           'kort1932'
           ];
