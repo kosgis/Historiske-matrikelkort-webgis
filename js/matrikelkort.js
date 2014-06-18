@@ -17,7 +17,7 @@ var logo = L.control({position: 'bottomleft'});
 /* mapBuffer er antal af grader som et matrikelkort skal overlappe
    kortvisningen før det dukker op i lag-listen. Graderne er defineret
    ved zoom-niveau 18, og bliver skaleret op og ned så det passer. */
-var mapBuffer = 0.006
+var mapBuffer = 0.003
 
 var hash = L.hash(map);
 
