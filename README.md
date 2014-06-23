@@ -1,7 +1,7 @@
 Web-løsning til at vise historiske matrikelkort
 =======================
 
-Se demo her: [Historiske matrikelkort fra Frederiksberg](http://hassehauch.github.io/Historiske-matrikelkort-webgis/matrikelkort.html "Historiske matrikelkort")
+Se demo her: [Historiske matrikelkort fra Frederiksberg](http://kosgis.github.io/Historiske-matrikelkort-webgis/matrikelkort.html "Historiske matrikelkort")
 
 ###Funktioner###
 
